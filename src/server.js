@@ -15,7 +15,8 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
+
+// app.use(express.static('public')); //se comenta porq parece q ace fallar a vercel...
 
 app.get('/', (req, res) => {
   res.redirect('/login.html');

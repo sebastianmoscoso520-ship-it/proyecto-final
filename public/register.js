@@ -1,7 +1,13 @@
-const API = '/api/auth';
+//const API = '/api/auth';
 // const API = 'http://localhost:8000/api/auth';
  //const API = "https://aplicacion-autenticacione-e-inventario.vercel.app/api/auth"; //es para utilizar con versel
-const out = document.getElementById('out');
+const baseURL = window.location.hostname.includes("localhost")
+  ? "http://localhost:8000"
+  : "";
+
+const API = `${baseURL}/api/auth`;
+
+ const out = document.getElementById('out');
 
 document.getElementById('registerForm').addEventListener('submit', async e => {
   e.preventDefault();
