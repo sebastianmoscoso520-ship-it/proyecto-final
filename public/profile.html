@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Perfil</title>
+</head>
+<body>
+  <h2>Perfil protegido</h2>
+  <!-- <div id="content">Cargando...</div> -->
+
+
+ <h1>🧰 Inventario de Repuestos talento tech +</h1>
+
+  <section class="form-section">
+    <h2>Agregar nuevo repuesto</h2>
+    <form id="form-repuesto">
+      <input type="text" id="nombre" placeholder="Nombre del repuesto" required />
+      <input type="text" id="codigo" placeholder="Código" required />
+      <input type="number" id="precio" placeholder="Precio" required />
+      <input type="number" id="cantidad" placeholder="Cantidad" required />
+      <button type="submit">Agregar</button>
+    </form>
+  </section>
+
+  <section class="lista-section">
+    <h2>Lista de repuestos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Código</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-repuestos"></tbody>
+    </table>
+  </section>
+
+  
+
+
+
+
+
+  
+  <button id="btnLogout">Cerrar sesión</button>
+
+    <pre id="out"></pre>
+
+  <script src="profile.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
