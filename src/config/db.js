@@ -11,13 +11,16 @@
 // }
 
 
+import mongoose from 'mongoose';
 
 export const conectarDb = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI)
-    console.log("✅ Conectado a la base de datos correctamente")
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 10000, // 10 segundos de espera
+    });
+    console.log("✅ Conectado a la base de datos correctamente");
   } catch (error) {
-    console.error("❌ Error de conexión a MongoDB:", error.message)
-    throw error // <- esto hará que el log aparezca en Vercel
+    console.error("❌ Error al conectar a MongoDB:", error.message);
+    throw error;
   }
-}
+};
