@@ -1,5 +1,5 @@
-// const API_URL = "https://inventario-repuestos.vercel.app/repuestos"; es para utilizar con versel
-const API_URL = 'http://localhost:8000/repuestos';
+const API_URL = "https://aplicacionAutenticacionEinventario.vercel.app/repuestos"; //es para utilizar con versel
+//const API_URL = 'http://localhost:8000/repuestos';
 
 const form = document.getElementById("form-repuesto");
 const tabla = document.getElementById("tabla-repuestos");
