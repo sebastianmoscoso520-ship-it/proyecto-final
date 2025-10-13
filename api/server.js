@@ -4,11 +4,11 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-import { conectarDb } from './config/db.js';
-import authRoutes from './routes/user.route.js';
-import routes from './routes/producto.route.js'
-import { verifyToken } from './middleware/auth.js';
-import User from './models/user.model.js';
+import { conectarDb } from '../src/config/db.js';
+import authRoutes from '../src/routes/user.route.js';
+import routes from '../src/routes/producto.route.js'
+import { verifyToken } from '../src/middleware/auth.js';
+import User from '../src/models/user.model.js';
 
 dotenv.config();
 const app = express();
