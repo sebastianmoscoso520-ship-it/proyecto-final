@@ -7,7 +7,7 @@ const baseURL = window.location.hostname.includes("localhost")
   ? "http://localhost:8000"
   : "";
 
-const API_URL = `${baseURL}/repuestos`;
+const API_URL = `${baseURL}/api/repuestos`;
 
 
 const form = document.getElementById("form-repuesto");

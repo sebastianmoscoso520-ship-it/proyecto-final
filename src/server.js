@@ -27,7 +27,7 @@ conectarDb();
 
 // rutas públicas
 app.use('/api/auth', authRoutes);
-app.use('/repuestos', routes)//quiero que se conecte a las rutas de repuestos
+app.use('/api/repuestos', routes)//quiero que se conecte a las rutas de repuestos
 
 // ruta protegida de ejemplo
 app.get('/api/profile', verifyToken, async (req, res) => {
@@ -41,5 +41,7 @@ app.get('/api/profile', verifyToken, async (req, res) => {
 
 app.get('/', (req, res) => res.send('API funcionando'));
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
+// const PORT = process.env.PORT || 8000;
+// app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
+//lo anterior lo quite porq vercel no lo necesita, En Vercel eso causa que nunca responda (no se usa listen() en serverless).
+export default app; // se puso para que funcione vercel y se anulo lo anterior.
