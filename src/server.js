@@ -44,4 +44,15 @@ app.get('/', (req, res) => res.send('API funcionando'));
 // const PORT = process.env.PORT || 8000;
 // app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
 //lo anterior lo quite porq vercel no lo necesita, En Vercel eso causa que nunca responda (no se usa listen() en serverless).
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 8000;
+  app.listen(PORT, () => console.log(`Servidor local en puerto ${PORT}`));
+}
+//Esto hace que:
+// En tu PC (modo desarrollo): sí se ejecute app.listen().
+// En Vercel (modo producción): no se ejecute, porque NODE_ENV será 'production'.
+
+
+
+
 export default app; // se puso para que funcione vercel y se anulo lo anterior.
