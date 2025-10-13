@@ -16,8 +16,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// app.use(express.static('public')); //se comenta porq parece q ace fallar a vercel...
-
+//app.use(express.static('public')); //se comenta porq parece q ace fallar a vercel... para usarlo uso la linea siguiente: 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(express.static('public'));
+}
 app.get('/', (req, res) => {
   res.redirect('/login.html');
 });

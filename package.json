@@ -2,9 +2,9 @@
   "name": "aplicacionautenticacioneinventario",
   "version": "1.0.0",
   "description": "",
-  "main": "api/server.js",
   "type": "module",
-  "scripts": {
+  "main": "api/server.js",
+    "scripts": {
     
     "start":"node api/server.js",
     "dev": "nodemon api/server.js"
