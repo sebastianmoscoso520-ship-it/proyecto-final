@@ -1,5 +1,5 @@
 // const API = 'http://localhost:8000/api/auth';
- const API = "https://inventario-repuestos.vercel.app/api/auth"; //es para utilizar con versel
+ const API = "https://aplicacion-autenticacione-e-inventario.vercel.app/api/auth"; //es para utilizar con versel
 const out = document.getElementById('out');
 
 document.getElementById('registerForm').addEventListener('submit', async e => {
