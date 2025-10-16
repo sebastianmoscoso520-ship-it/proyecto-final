@@ -1,0 +1,199 @@
+:root {
+  --halloween-primary: #8a2be2;    /* Morado Halloween */
+  --halloween-accent: #ff6b00;     /* Naranja Halloween */
+  --halloween-dark: #2c1810;       /* Marrón oscuro */
+  --halloween-light: #f8f1e5;      /* Beige claro */
+  --halloween-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --halloween-border: 1px solid rgba(138, 43, 226, 0.3);
+  --halloween-radius: 8px;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--halloween-dark);
+  color: var(--halloween-light);
+  margin: 0;
+  padding: 20px;
+  background-image: url('https://cdn.pixabay.com/photo/2016/10/31/18/14/bonfire-1784925_960_720.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 24, 16, 0.9);
+  z-index: -1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#btnLogout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: var(--halloween-accent);
+  color: white;
+  border: none;
+  border-radius: var(--halloween-radius);
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s; 
+}
+
+#btnLogout:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+}
+
+h1, h2 {
+  color: var(--halloween-accent);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px rgba(255, 107, 0, 0.3);
+}
+
+/* Secciones con estilo Halloween */
+.form-section, .lista-section {
+  background: rgba(30, 20, 10, 0.95);
+  padding: 2rem;
+  border-radius: var(--halloween-radius);
+  box-shadow: var(--halloween-shadow);
+  margin-bottom: 2rem;
+  border: var(--halloween-border);
+}
+
+.form-section h2, .lista-section h2 {
+  color: var(--halloween-primary);
+  border-bottom: 1px solid var(--halloween-accent);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+#form-repuesto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#form-repuesto input {
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: var(--halloween-radius);
+  background-color: rgba(248, 241, 229, 0.1);
+  color: var(--halloween-light);
+  transition: all 0.3s;
+}
+
+#form-repuesto input:focus {
+  border-color: var(--halloween-primary);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+}
+
+#form-repuesto button {
+  grid-column: 1 / -1;
+  padding: 12px;
+  background-color: var(--halloween-primary);
+  color: white;
+  border: none;
+  border-radius: var(--halloween-radius);
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+#form-repuesto button:hover {
+  background-color: #7b1fa2;
+}
+
+/* Tabla de repuestos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+th {
+  background-color: var(--halloween-primary);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--halloween-accent);
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tr:hover {
+  background-color: rgba(138, 43, 226, 0.1);
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--halloween-radius);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: var(--halloween-accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--halloween-radius);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #d84315;
+}
+
+/* Elementos decorativos de Halloween (opcional) */
+.halloween-decoration {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.6;
+  font-size: 1.5rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #form-repuesto {
+    grid-template-columns: 1fr;
+  }
+  .form-section, .lista-section {
+    padding: 1.5rem;
+  }
+}

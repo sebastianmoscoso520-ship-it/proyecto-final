@@ -1,38 +1,51 @@
-// server.js
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import { conectarDb } from '../src/config/db.js';
 import authRoutes from '../src/routes/user.route.js';
-import routes from '../src/routes/producto.route.js'
+import routes from '../src/routes/producto.route.js';
 import { verifyToken } from '../src/middleware/auth.js';
 import User from '../src/models/user.model.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-//app.use(express.static('public')); //se comenta porq parece q ace fallar a vercel... para usarlo uso la linea siguiente: 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(express.static('public'));
-}
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static('public'));
+
+// Ruta principal que envía login.html
 app.get('/', (req, res) => {
-  res.redirect('/login.html');
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
+// Rutas opcionales para otras páginas
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/profile.html'));
+});
 
-// conectar DB
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/register.html'));
+});
+
+// Conectar a la base de datos
 conectarDb();
 
-// rutas públicas
+// Rutas públicas
 app.use('/api/auth', authRoutes);
-app.use('/api/repuestos', routes)//quiero que se conecte a las rutas de repuestos
+app.use('/api/repuestos', routes);
 
-// ruta protegida de ejemplo
+// Ruta protegida de ejemplo
 app.get('/api/profile', verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -42,20 +55,10 @@ app.get('/api/profile', verifyToken, async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => res.send('API funcionando'));
-
-// const PORT = process.env.PORT || 8000;
-// app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
-//lo anterior lo quite porq vercel no lo necesita, En Vercel eso causa que nunca responda (no se usa listen() en serverless).
+// Levantar servidor solo en desarrollo (local)
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 8000;
   app.listen(PORT, () => console.log(`Servidor local en puerto ${PORT}`));
 }
-//Esto hace que:
-// En tu PC (modo desarrollo): sí se ejecute app.listen().
-// En Vercel (modo producción): no se ejecute, porque NODE_ENV será 'production'.
 
-
-
-
-export default app; // se puso para que funcione vercel y se anulo lo anterior.
+export default app;

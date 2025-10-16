@@ -1,60 +1,141 @@
+:root {
+  --naranja: #ff6b00;
+  --morado: #8a2be2;
+  --verde: #4CAF50;
+  --negro: #121212;
+  --gris: #222;
+  --blanco: #f8f1e5;
+  --fantasma: #e0f7fa;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f6fa;
-  color: #333;
-  margin: 0;
-  padding: 2rem;
-}
-
-h1 {
-  text-align: center;
-  color: #2f3640;
-}
-
-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--blanco);
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 24, 16, 0.85);
+  z-index: -1;
+}
+
+/* Estilos para TODOS los formularios (login y registro) */
+form {
+  background: rgba(30, 20, 10, 0.9);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  width: 320px;
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+h2 {
+  color: var(--naranja);
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
+  text-shadow: 0 0 5px var(--naranja);
 }
 
 input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  flex: 1;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: rgba(248, 241, 229, 0.15);
+  color: var(--blanco);
+  border-bottom: 2px solid var(--morado);
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--naranja);
+  box-shadow: 0 0 5px var(--naranja);
 }
 
 button {
-  padding: 0.5rem 1rem;
-  background: #0097e6;
+  width: 100%;
+  padding: 12px;
+  background: var(--morado);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
-  background: #0984e3;
+  background: var(--naranja);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px var(--naranja);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+p {
+  margin-top: 1.2rem;
 }
 
-th, td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
+a {
+  color: var(--naranja);
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.actions button {
-  margin: 0 4px;
-  background: #44bd32;
+a:hover {
+  text-decoration: underline;
+  color: var(--verde);
 }
 
-.actions .delete {
-  background: #e84118;
+/* Animaciones para iconos de Halloween */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-20px) rotate(3deg); }
 }
+
+.halloween-icon {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
+}
+
+.fa-ghost { color: var(--fantasma); font-size: 2rem; top: 15%; left: 10%; }
+.fa-pumpkin { color: var(--naranja); font-size: 1.8rem; top: 60%; right: 15%; }
+.fa-bat { color: var(--negro); font-size: 1.5rem; top: 30%; left: 5%; animation-duration: 8s; }
+
+#out { display: none; }
+
+body {
+      background-image: url('fondobiker.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      text-align: center;
+      display: none;
+    }
+

@@ -2,28 +2,42 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Perfil</title>
+  <title>Perfil - Inventario de Repuestos 🎃</title>
+  <link rel="stylesheet" href="profile.style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="animations.css">
 </head>
 <body>
-  <h2>Perfil protegido</h2>
-  <!-- <div id="content">Cargando...</div> -->
+  <!-- Elementos decorativos de Halloween -->
+  <i class="fas fa-ghost halloween-icon" style="top: 10%; left: 5%;"></i>
+  <i class="fas fa-pumpkin halloween-icon pumpkin" style="top: 20%; right: 10%;"></i>
+  <i class="fas fa-bat halloween-icon bat" style="top: 60%; left: 8%;"></i>
+  <i class="fas fa-skull halloween-icon" style="bottom: 20%; right: 15%; color: white;"></i>
+  <i class="fas fa-crow halloween-icon bat" style="top: 15%; right: 25%;"></i>
 
+  <button id="btnLogout">
+    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+  </button>
 
- <h1>🧰 Inventario de Repuestos talento tech +</h1>
+  <h1>
+    <i class="fas fa-toolbox"></i> Inventario de Repuestos <span style="color: var(--primary);">Talento Tech +</span> 🎃
+  </h1>
 
   <section class="form-section">
-    <h2>Agregar nuevo repuesto</h2>
+    <h2><i class="fas fa-plus-circle"></i> Agregar nuevo repuesto</h2>
     <form id="form-repuesto">
       <input type="text" id="nombre" placeholder="Nombre del repuesto" required />
       <input type="text" id="codigo" placeholder="Código" required />
-      <input type="number" id="precio" placeholder="Precio" required />
+      <input type="number" id="precio" placeholder="Precio ($)" required />
       <input type="number" id="cantidad" placeholder="Cantidad" required />
-      <button type="submit">Agregar</button>
+      <button type="submit">
+        <i class="fas fa-plus"></i> Agregar
+      </button>
     </form>
   </section>
 
   <section class="lista-section">
-    <h2>Lista de repuestos</h2>
+    <h2><i class="fas fa-list"></i> Lista de repuestos</h2>
     <table>
       <thead>
         <tr>
@@ -34,22 +48,15 @@
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody id="tabla-repuestos"></tbody>
+      <tbody id="tabla-repuestos">
+        <!-- Aquí se cargarán los repuestos dinámicamente -->
+      </tbody>
     </table>
   </section>
 
-  
-
-
-
-
-
-  
-  <button id="btnLogout">Cerrar sesión</button>
-
-    <pre id="out"></pre>
-
+  <pre id="out" style="display: none;"></pre>
   <script src="profile.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
